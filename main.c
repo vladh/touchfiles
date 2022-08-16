@@ -59,5 +59,8 @@ main(int argc, char **argv)
     for (uint64_t i = 0; i < n_files; i++) {
         make_filename(filename, dir, i);
         make_file(filename);
+        if (i % 100000 == 0 && i != 0) {
+            printf("Creating file number %ld\n", i);
+        }
     }
 }
