@@ -32,7 +32,9 @@ make_filename(char *str, char *dir, int i)
 void
 make_file(char *name)
 {
+    printf("Trying to open %s\n", name);
     FILE *fp = fopen(name, "w");
+    printf("Opened %s\n", name);
     if (!fp) {
         printf("Could not open %s\n", name);
         exit(-1);
