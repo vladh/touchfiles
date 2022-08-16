@@ -32,9 +32,7 @@ make_filename(char *str, char *dir, int i)
 void
 make_file(char *name)
 {
-    printf("Trying to open %s\n", name);
     FILE *fp = fopen(name, "w");
-    printf("Opened %s\n", name);
     if (!fp) {
         printf("Could not open %s\n", name);
         exit(-1);
@@ -58,6 +56,10 @@ main(int argc, char **argv)
     uint64_t n_files = strtol(argv[1], (char **)NULL, 10);
     char *dir = argv[2];
     printf("Creating %ld files in %s\n", n_files, dir);
+
+    if (n_files == 0) {
+        printf("You asked to create 0 files, did you specify the arguments correctly?\n");
+    }
 
     for (uint64_t i = 0; i < n_files; i++) {
         make_filename(filename, dir, i);
