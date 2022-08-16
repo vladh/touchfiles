@@ -55,8 +55,9 @@ main(int argc, char **argv)
         exit(1);
     }
 
-    int n_files = strtol(argv[1], (char **)NULL, 10);
+    uint64_t n_files = strtol(argv[1], (char **)NULL, 10);
     char *dir = argv[2];
+    printf("Creating %ld files in %s\n", n_files, dir);
 
     for (uint64_t i = 0; i < n_files; i++) {
         make_filename(filename, dir, i);
